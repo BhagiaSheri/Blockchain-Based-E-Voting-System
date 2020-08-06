@@ -64,7 +64,7 @@ CREATE TABLE `users` (
   `email` varchar(35) NOT NULL,
   `contact_no` varchar(13) NOT NULL,
   `age` int(10) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `profile` blob NOT NULL,
   `is_active` tinyint(5) NOT NULL DEFAULT '0',
   `is_vote_casted` tinyint(5) NOT NULL DEFAULT '0'
