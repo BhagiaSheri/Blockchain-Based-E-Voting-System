@@ -4535,9 +4535,9 @@ input[type=button].btn-block {
   color: white !important;
 }
 
-#sidenavAccordion .sb-nav-link-icon,label {
-  color: white !important;
-}
+/* #sidenavAccordion .sb-nav-link-icon,label { */
+  /* color: white !important; */
+/* } */
 
 #navbar{
   background-color: #b3aeab;
