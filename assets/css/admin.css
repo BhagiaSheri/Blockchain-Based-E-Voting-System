@@ -148,13 +148,14 @@ sup {
 }
 
 a {
-  color: #007bff;
-  /* color: white; */
+  /* color: #007bff; */
+  color: white;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover {
-  color: #0056b3;
+  /* color: #0056b3; */
+  color: #e91d36;
   text-decoration: underline;
 }
 
@@ -3170,7 +3171,8 @@ input[type=button].btn-block {
   border: 0;
 }
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #16181b;
+  /* color: #16181b; */
+  color: #e91d36;
   text-decoration: none;
   background-color: #f8f9fa;
 }
