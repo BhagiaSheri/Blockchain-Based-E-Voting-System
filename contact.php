@@ -1,6 +1,7 @@
 <?php
 include_once("header.html");
 ?>
+ <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Final Year Project</title>
     <link rel="stylesheet" href="./assets/css/contact.css">
 

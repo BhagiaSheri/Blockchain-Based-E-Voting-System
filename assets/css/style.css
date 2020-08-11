@@ -10,14 +10,9 @@ body {
     background-color: #b3aeab !important;
 }
 
-.navbar {
-
-}
 
 .active {
     border-bottom: 5px solid red;
-
-
 }
 
 .nav-item,

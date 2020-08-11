@@ -1,6 +1,7 @@
 <?php
 include_once("header.html");
 ?>
+ <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <title>VO-BLOK</title>
 </head>
 

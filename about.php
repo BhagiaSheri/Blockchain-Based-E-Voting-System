@@ -2,6 +2,7 @@
 include_once("header.html");
 ?>
 <title>Final Year Project</title>
+ <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/about.css">
 
 </head>

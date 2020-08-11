@@ -1,8 +1,8 @@
 <?php
 include_once("header.html");
 ?>
-	<title>Login to VO-BLOK</title>
-	<link rel="stylesheet" href="assets/css/login.css">
+<title>Login to VO-BLOK</title>
+<link rel="stylesheet" href="assets/css/login.css">
 </head>
 <!--Coded with love by Mutiullah Samim-->
 
@@ -16,22 +16,21 @@ include_once("header.html");
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form>
+					<form method="POST" action="php/login.php" name="login">
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+							<input type="text" name="email" class="form-control input_user" value="" placeholder="email" required validate>
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="" class="form-control input_pass" value=""
-								placeholder="password">
+							<input type="password" name="password" class="form-control input_pass" value="" placeholder="password" required validate>
 						</div>
 						<div class="d-flex justify-content-center mt-3 login_container">
-							<button type="button" name="button" class="btn login_btn">Login</button>
+							<button type="submit"  class="btn login_btn">Login</button>
 						</div>
 					</form>
 				</div>
@@ -41,14 +40,15 @@ include_once("header.html");
 						Don't have an account? <a href="signup.php" style="color: #2e3853;" class="ml-2">Sign Up</a>
 					</div>
 					<!-- <div class="d-flex justify-content-center links">
-						<a href="#">Forgot your password?</a>
-					</div> -->
+                    <a href="#">Forgot your password?</a>
+                </div> -->
 				</div>
 			</div>
 		</div>
 	</div>
-	<?php 
+	<?php
 	include_once("footer-script.html");
 	?>
 </body>
+
 </html>
