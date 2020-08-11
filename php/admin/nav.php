@@ -15,7 +15,7 @@ $name = $_SESSION["user_name"] ;
 
         <!-- for logged in user in navbar -->
         <li class="nav-item dropdown" >
-            <a class="nav-link dropdown-toggle" style="color: white !important;" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#"><?php echo $name ?></a>
                 <a class="dropdown-item" href="#">Settings</a>
@@ -34,19 +34,19 @@ $name = $_SESSION["user_name"] ;
                 <div class="nav"  >
                     <a class="nav-link  " href="#">
                         <div class="sb-nav-link-icon "><i class="fas fa-tachometer-alt"></i></div>
-                        <label class="" >Results</label>
+                        Results
                     </a>
                     <a class="nav-link" href="#">
                         <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
-                        <label class=""> Manage Users</label>
+                        Manage Users
                     </a>
                     <a class="nav-link" href="#">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                        <label class="">Manage Candidates</label>
+                        Manage Candidates
                     </a>
                     <a class="nav-link" href="#">
                         <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
-                        <label class="">Schedule Vote</label>
+                        Schedule Vote
                     </a>
                 </div>
             </div>
