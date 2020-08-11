@@ -40,7 +40,7 @@ $name = $_SESSION["user_name"] ;
                         <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
                         Manage Users
                     </a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="manage-candidates.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         Manage Candidates
                     </a>
