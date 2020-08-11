@@ -32,7 +32,7 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
        $_SESSION['user_name'] = $row['full_name'];
 
     //    Redirect to admin module
-       header("location:../admin.php");
+       header("location:../php/admin/admin.php");
 
     } else {
         //hashed function

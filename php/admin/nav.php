@@ -1,13 +1,13 @@
 <?php
 session_start();
 if (!(isset($_SESSION['role']) ) || $_SESSION['role'] != 'admin') {
-    header("location:index.php");
+    header("location:../../index.php");
 }
 $name = $_SESSION["user_name"] ;
 ?>
 
 <nav class="sb-topnav navbar navbar-expand " id="navbar">
-    <a class="navbar-brand" href="#" style="margin:0px;"><img src="assets/images/logo-vo-blok.png" width="150" style="margin:0px;"></a>
+    <a class="navbar-brand" href="#" style="margin:0px;"><img src="../../assets/images/logo-vo-blok.png" width="150" style="margin:0px;"></a>
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
 
     <!-- Navbar-->
@@ -53,7 +53,3 @@ $name = $_SESSION["user_name"] ;
 
         </nav>
     </div>
-
-    <!-- session_start(); //to ensure you are using same session
-         session_destroy(); //destroy the session  
-                     ?> -->
