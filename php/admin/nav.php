@@ -32,11 +32,11 @@ $name = $_SESSION["user_name"] ;
         <nav class="sb-sidenav accordion " id="sidenavAccordion" >
             <div class="sb-sidenav-menu">
                 <div class="nav"  >
-                    <a class="nav-link  " href="#">
+                    <a class="nav-link  " href="admin.php">
                         <div class="sb-nav-link-icon "><i class="fas fa-tachometer-alt"></i></div>
                         Results
                     </a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="manage-users.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
                         Manage Users
                     </a>

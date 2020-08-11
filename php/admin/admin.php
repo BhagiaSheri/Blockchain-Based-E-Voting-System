@@ -3,8 +3,7 @@ include_once("header.html");
 ?>
         <title>Admin</title>
         <link rel="stylesheet" href="../../assets/lib/bootstrap-4.5.2/css/bootstrap.min.css">
-
-    <link href="../../assets/css/admin.css" rel="stylesheet" />
+        <link href="../../assets/css/admin.css" rel="stylesheet" />
 </head>
 
 <body class="sb-nav-fixed">

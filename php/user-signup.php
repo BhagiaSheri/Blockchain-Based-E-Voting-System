@@ -1,4 +1,3 @@
-
 <!-- user-sign-up PHP code -->
 <?php
 
