@@ -2,12 +2,14 @@
 include_once("header.html");
 ?>
         <title>Admin</title>
-    <link href="assets/css/admin.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../../assets/lib/bootstrap-4.5.2/css/bootstrap.min.css">
+
+    <link href="../../assets/css/admin.css" rel="stylesheet" />
 </head>
 
 <body class="sb-nav-fixed">
 <?php
-        include_once("php/admin/nav.php");
+        include_once("nav.php");
 ?>
         <div id="layoutSidenav_content">
             <main>
@@ -534,18 +536,6 @@ include_once("header.html");
     include_once("footer-script.html");
     ?>
 
-        <script src="assets/script/admin-scripts.js"></script>
-        <script src="assets/lib/Chart.min.js" crossorigin="anonymous"></script>
-        
-        <script src="assets/script/chart-bar.js"></script>
-        <script src="assets/script/chart-pie.js"></script>  
-    
-        <script src="ajax/handler.js"></script> 
-        <script src="ajax/controller.js"></script>  
-
-        <script src="assets/lib/dataTables/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="assets/lib/dataTables/dataTables.bootstrap.min.js" crossorigin="anonymous"></script>
-        <script src="assets/script/datatables.js"></script>
 
 </body>
 
