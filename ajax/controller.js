@@ -1,5 +1,4 @@
 function log_out(){
-    // var log_me_out="true";
     $.post("../log_out.php",
     function(data){
       // alert("returned: "+data);
