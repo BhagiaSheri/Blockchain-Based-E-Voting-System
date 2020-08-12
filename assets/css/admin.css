@@ -211,6 +211,10 @@ caption {
 
 th {
   text-align: inherit;
+  text-align: center;
+}
+tr {
+  text-align: center;
 }
 
 label {
