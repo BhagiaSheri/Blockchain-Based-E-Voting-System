@@ -67,5 +67,10 @@ if ($_POST) {
             }
         }
     }
+        else{
+            echo "<br>Password does not Matched!!!";
+        }
+    }  
+  }
 }
 ?>
