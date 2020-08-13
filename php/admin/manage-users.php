@@ -4,6 +4,11 @@ include_once("header.html");
 <title>Manage Users</title>
 <link rel="stylesheet" href="../../assets/lib/bootstrap-4.5.2/css/bootstrap.min.css">
 <link href="../../assets/css/admin.css" rel="stylesheet" />
+<style>
+    a[href="manage-users.php"] {
+        color: #e91d36;
+    }
+</style>
 </head>
 
 <body class="sb-nav-fixed">
