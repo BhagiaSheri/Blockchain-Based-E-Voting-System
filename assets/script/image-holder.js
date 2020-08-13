@@ -14,7 +14,6 @@ $("#profile-pic").change(function () {
     readURL(this);
 });
 
-<<<<<<< HEAD
 //-------for adding image at user edit model------
 function readUpdatedURL(input) {
     if (input.files && input.files[0]) {
@@ -32,7 +31,6 @@ $("#user-profile").change(function () {
 });
 
 
-=======
 // For manage candidates
 function readCandidateURL(elem, tagId) 
 {
@@ -49,4 +47,3 @@ function readCandidateURL(elem, tagId)
 $("#create-candidate-pic").change(function () {
     readCandidateURL(this, "#create-candidate-profile-imgTag");
 });
->>>>>>> 9fda2e653a5311e8e2e51822db9062b70078d900
