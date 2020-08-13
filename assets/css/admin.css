@@ -4537,6 +4537,9 @@ input[type=button].btn-block {
 #sidenavAccordion{
   background-color: #2e3853;
   color: white !important;
+  font-size: 18px;
+  font-weight: bold;
+
 }
 
 /* #sidenavAccordion .sb-nav-link-icon,label { */

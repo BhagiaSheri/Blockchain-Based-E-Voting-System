@@ -4,6 +4,11 @@ include_once("header.html");
 <title>Manage Candidates</title>
 <link rel="stylesheet" href="../../assets/lib/bootstrap-4.5.2/css/bootstrap.min.css">
 <link href="../../assets/css/admin.css" rel="stylesheet" />
+<style>
+   a[href="manage-candidates.php"]{
+       color:#e91d36 ;
+    }
+</style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -11,6 +16,7 @@ include_once("header.html");
     include_once("nav.php");
     include_once("modals/create-candidate.html");
     include_once("modals/delete-candidate.html");
+    include_once("modals/edit-candidate.html");
     ?>
 
     <div id="layoutSidenav_content">
@@ -18,6 +24,7 @@ include_once("header.html");
             <div class="container-fluid">
                 <div class="clearfix">
                 <h1 class="mt-4 float-left" >Manage Candidates</h1>
+                <div id="temp"></div>
                 <button type="button" class="btn btn-primary mt-4 float-right" data-toggle="modal" data-target="#createCandidateModal"><i class="fas fa-plus"></i> Create</button>
                 </div>
                 <div class="card mb-4">
@@ -57,7 +64,7 @@ include_once("header.html");
                                     if ($conn == null) {
                                         include_once("../config/connection.php");
 
-                                        if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
+                                        if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin" ) {
 
                                             $stm = $conn->prepare("SELECT * from CANDIDATES where is_deleted =0");
                                             $stm->execute();
