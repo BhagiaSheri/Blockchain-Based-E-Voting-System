@@ -8,7 +8,7 @@ $(document).ready(function () {
 
   //on click to edit candidate
   $(".edit-candidate").click(function (event) {
-    alert("edit!, id: " + event.target.id);
+    editCandidate(event.target.id);
   });
 
   //on click to delete candidate 

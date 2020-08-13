@@ -14,9 +14,7 @@ include_once("header.html");
 <body class="sb-nav-fixed">
     <?php
     include_once("nav.php");
-    include_once("modals/create-candidate.html");
-    include_once("modals/delete-candidate.html");
-    include_once("modals/edit-candidate.html");
+  
     ?>
 
     <div id="layoutSidenav_content">
@@ -25,7 +23,7 @@ include_once("header.html");
                 <div class="clearfix">
                 <h1 class="mt-4 float-left" >Schedule Vote</h1>
                 <div id="temp"></div>
-                <button type="button" class="btn btn-primary mt-4 float-right" data-toggle="modal" data-target="#createCandidateModal"><i class="fas fa-plus"></i> Create</button>
+                <button type="button" class="btn btn-primary mt-4 float-right" data-toggle="modal" data-target="#createTimeModal"><i class="fas fa-plus"></i> Create</button>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
