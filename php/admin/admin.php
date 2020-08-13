@@ -5,11 +5,6 @@ include_once("header.html");
         <link rel="stylesheet" href="../../assets/lib/bootstrap-4.5.2/css/bootstrap.min.css">
 
     <link href="../../assets/css/admin.css" rel="stylesheet" />
-    <style>
-   a[href="admin.php"]{
-       color:#e91d36 ;
-    }
-</style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -20,8 +15,6 @@ include_once("header.html");
             <main>
                 <div class="container-fluid">
                     <h1 class="mt-4">Results</h1>
-                    
-                    
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card mb-4">

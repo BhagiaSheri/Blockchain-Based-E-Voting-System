@@ -5,8 +5,8 @@ include_once("header.html");
 <link rel="stylesheet" href="../../assets/lib/bootstrap-4.5.2/css/bootstrap.min.css">
 <link href="../../assets/css/admin.css" rel="stylesheet" />
 <style>
-   a[href="manage-candidates.php"]{
-       color:#e91d36 ;
+    a[href="manage-candidates.php"] {
+        color: #e91d36;
     }
 </style>
 </head>
@@ -23,9 +23,9 @@ include_once("header.html");
         <main>
             <div class="container-fluid">
                 <div class="clearfix">
-                <h1 class="mt-4 float-left" >Manage Candidates</h1>
-                <div id="temp"></div>
-                <button type="button" class="btn btn-primary mt-4 float-right" data-toggle="modal" data-target="#createCandidateModal"><i class="fas fa-plus"></i> Create</button>
+                    <h1 class="mt-4 float-left">Manage Candidates</h1>
+                    <div id="temp"></div>
+                    <button type="button" class="btn btn-primary mt-4 float-right" data-toggle="modal" data-target="#createCandidateModal"><i class="fas fa-plus"></i> Create</button>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
@@ -64,7 +64,7 @@ include_once("header.html");
                                     if ($conn == null) {
                                         include_once("../config/connection.php");
 
-                                        if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin" ) {
+                                        if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
 
                                             $stm = $conn->prepare("SELECT * from CANDIDATES where is_deleted =0");
                                             $stm->execute();
@@ -78,7 +78,7 @@ include_once("header.html");
                                                 echo "<td>" . $row['contact_no'] . "</td>";
                                                 echo "<td>" . $row['age'] . "</td>";
                                                 echo "<td>" . $row['designation'] . "</td>";
-                                                echo "<td> <a class='btn btn-success far fa-edit edit-candidate' style='font-size:13px' id='".$row['c_id']."' ></a> <a style='font-size:13px' class='btn btn-danger fas fa-trash-alt dlt-candidate my-3' id='".$row['c_id']."' ></a> </td>";
+                                                echo "<td> <a class='btn btn-success far fa-edit edit-candidate' style='font-size:13px' id='" . $row['c_id'] . "' ></a> <a style='font-size:13px' class='btn btn-danger fas fa-trash-alt dlt-candidate my-3' id='" . $row['c_id'] . "' ></a> </td>";
                                                 echo "</tr>";
                                             }
                                         }

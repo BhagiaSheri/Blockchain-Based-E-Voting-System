@@ -47,8 +47,3 @@ function readCandidateURL(elem, tagId)
 $("#create-candidate-pic").change(function () {
     readCandidateURL(this, "#create-candidate-profile-imgTag");
 });
-
-// for edit candidate
-$("#edit-candidate-img-container.form-group").on("change", "#edit-candidate-pic",function () {
-    readCandidateURL(this, "#edit-candidate-profile-imgTag")
-});
