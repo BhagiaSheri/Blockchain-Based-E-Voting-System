@@ -14,6 +14,7 @@ $("#profile-pic").change(function () {
     readURL(this);
 });
 
+<<<<<<< HEAD
 //-------for adding image at user edit model------
 function readUpdatedURL(input) {
     if (input.files && input.files[0]) {
@@ -31,3 +32,21 @@ $("#user-profile").change(function () {
 });
 
 
+=======
+// For manage candidates
+function readCandidateURL(elem, tagId) 
+{
+      if (elem.files && elem.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $(tagId).attr('src', e.target.result);
+        }
+        reader.readAsDataURL(elem.files[0]);
+    }
+}
+
+// for create candidate
+$("#create-candidate-pic").change(function () {
+    readCandidateURL(this, "#create-candidate-profile-imgTag");
+});
+>>>>>>> 9fda2e653a5311e8e2e51822db9062b70078d900
