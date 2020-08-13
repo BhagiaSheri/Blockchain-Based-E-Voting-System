@@ -49,38 +49,38 @@ include_once("header.html");
                                 </tfoot>
                                 <tbody>
 
-                               <?php
-                               include_once("modals/user-create-modal.php");
-                               include_once("modals/user-edit-modal.php");
-                                global $conn;
-                                if ($conn == null) {
-                                    include_once("../config/connection.php");
+                                    <?php
+                                    include_once("modals/user-create-modal.php");
+                                    include_once("modals/user-edit-modal.php");
+                                    include_once("modals/user-delete-modal.html");
+                                    global $conn;
+                                    if ($conn == null) {
+                                        include_once("../config/connection.php");
 
-                                    if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
+                                        if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
 
-                                        $stm = $conn->prepare("Select id, name, email, contact_no, age, profile, imgtype, is_active from users");
-                                        $stm->execute();
+                                            $stm = $conn->prepare("Select id, name, email, contact_no, age, profile, imgtype, is_active from users where is_deleted=0");
+                                            $stm->execute();
 
-                                        while ($row = $stm->fetch()) {
+                                            while ($row = $stm->fetch()) {
 
-                                            echo "<tr>";
-                                            echo "<td><img src='data:" . $row["imgtype"] . ";base64," . base64_encode($row["profile"]) . "'height='100' width='100'/></td>";
-                                            echo "<td>" . $row['name'] . "</td>";
-                                            echo "<td>" . $row['email'] . "</td>";
-                                            echo "<td>" . $row['age'] . "</td>";
-                                            echo "<td>" . $row['contact_no'] . "</td>";
-                                            if($row['is_active']){
-                                                echo "<td> <a href='user-status.php?status=".$row['is_active']."&uid=".$row['id']."' style='font-size:16px' class='badge badge-pill badge-info text-white' id='" . $row['id'] . "'>Active</a></td>";
+                                                echo "<tr>";
+                                                echo "<td><img src='data:" . $row["imgtype"] . ";base64," . base64_encode($row["profile"]) . "'height='100' width='100'/></td>";
+                                                echo "<td>" . $row['name'] . "</td>";
+                                                echo "<td>" . $row['email'] . "</td>";
+                                                echo "<td>" . $row['age'] . "</td>";
+                                                echo "<td>" . $row['contact_no'] . "</td>";
+                                                if ($row['is_active']) {
+                                                    echo "<td> <a href='user-status.php?status=" . $row['is_active'] . "&uid=" . $row['id'] . "' style='font-size:16px' class='badge badge-pill badge-info text-white' id='" . $row['id'] . "'>Active</a></td>";
+                                                } else {
+                                                    echo "<td> <a href='user-status.php?status=" . $row['is_active'] . "&uid=" . $row['id'] . "' style='font-size:16px' class='badge badge-pill badge-warning text-white' id='" . $row['id'] . "'>Disable</a></td>";
+                                                }
+                                                echo "<td> <button class='btn btn-success fas fa-edit' onclick='addValues(this)' data-toggle='modal' data-target='#editModal' style='font-size:13px' id='" . $row['id'] . "'></button> <button style='font-size:13px' class='btn btn-danger fas fa-trash-alt dlt-user' id='" . $row['id'] . "'></button> </td>";
+                                                echo "</tr>";
                                             }
-                                            else{
-                                                echo "<td> <a href='user-status.php?status=".$row['is_active']."&uid=".$row['id']."' style='font-size:16px' class='badge badge-pill badge-warning text-white' id='" . $row['id'] . "'>Disable</a></td>";
-                                            }
-                                            echo "<td> <button class='btn btn-success fas fa-edit' data-toggle='modal' onclick='addValues(this)' data-target='#editModal' style='font-size:13px' id='" . $row['id'] . "'></button> <button style='font-size:13px' class='btn btn-danger fas fa-trash-alt' id'" . $row['id'] . "'></button> </td>";
-                                            echo "</tr>";
                                         }
                                     }
-                                }
-                                ?>
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

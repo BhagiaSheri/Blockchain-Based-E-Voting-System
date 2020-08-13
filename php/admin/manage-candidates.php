@@ -89,6 +89,7 @@ include_once("header.html");
     <?php
     include_once("footer-script.html");
     ?>
+    <script src="../../assets/script/image-holder.js"></script>
     <script src="../../ajax/handler.js"></script>
     <script src="../../ajax/controller.js"></script>
 
