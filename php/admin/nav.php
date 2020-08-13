@@ -44,7 +44,7 @@ $name = $_SESSION["user_name"] ;
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         Manage Candidates
                     </a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="schedule-vote.php">
                         <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
                         Schedule Vote
                     </a>

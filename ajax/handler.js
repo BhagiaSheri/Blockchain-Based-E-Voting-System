@@ -18,6 +18,12 @@ $(document).ready(function () {
     modal.modal();
   });
 
+  //on click to delete user
+  $(".dlt-user").click(function (event) {
+    var modal = $("#deleteUserModal");
+    modal.find('#delete-user-id').val(event.target.id);
+    modal.modal();
+  });
   
 
 
