@@ -14,8 +14,6 @@ include_once("header.html");
             <main>
                 <div class="container-fluid">
                     <h1 class="mt-4">Results</h1>
-                    
-                    
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card mb-4">

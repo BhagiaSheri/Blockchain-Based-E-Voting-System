@@ -67,7 +67,7 @@
 
                     <div class="mt-2">
                         <div class="d-flex justify-content-center links">
-                            Already have an account? <a href="../login.php" class="ml-2 login-link">Login</a>
+                            Already have an account? <a href="login.php" class="ml-2 login-link">Login</a>
                         </div>
 					</div>
 				</section>

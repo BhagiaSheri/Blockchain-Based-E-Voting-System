@@ -14,8 +14,8 @@ include_once("header.html");
         <main>
             <div class="container-fluid">
                 <div class="clearfix">
-                <h1 class="mt-4 float-left" >Manage Candidates</h1>
-                <button class="btn btn-primary mt-4 float-right"><i class="fas fa-plus"> Create</i></button>
+                    <h1 class="mt-4 float-left">Manage Candidates</h1>
+                    <button class="btn btn-primary mt-4 float-right"><i class="fas fa-plus"> Create</i></button>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
@@ -56,7 +56,7 @@ include_once("header.html");
                                     if ($conn == null) {
                                         include_once("../config/connection.php");
 
-                                        if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin" ) {
+                                        if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
 
                                             $stm = $conn->prepare("SELECT * from CANDIDATES");
                                             $stm->execute();
@@ -71,7 +71,7 @@ include_once("header.html");
                                                 // echo "<td>" . $row['age'] . "</td>";
                                                 echo "<td>" . $row['designation'] . "</td>";
                                                 echo "<td>" . $row['no_of_votes'] . "</td>";
-                                                echo "<td> <a class='btn btn-success far fa-edit' style='font-size:13px' id'".$row['c_id']."'></a> <a style='font-size:13px' class='btn btn-danger fas fa-trash-alt' id'".$row['c_id']."'></a> </td>";
+                                                echo "<td> <a class='btn btn-success far fa-edit' style='font-size:13px' id'" . $row['c_id'] . "'></a> <a style='font-size:13px' class='btn btn-danger fas fa-trash-alt' id'" . $row['c_id'] . "'></a> </td>";
                                                 echo "</tr>";
                                             }
                                         }
