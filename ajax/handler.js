@@ -8,9 +8,9 @@ $(document).ready(function () {
 
   //on click to edit candidate
   $(".edit-candidate").click(function (event) {
-    editCandidate(event.target.id);
+    alert("edit!, id: " + event.target.id);
   });
-  
+
   //on click to delete candidate 
   $(".dlt-candidate").click(function (event) {
     var modal = $("#deleteCandidateModal");
@@ -18,7 +18,11 @@ $(document).ready(function () {
     modal.modal();
   });
 
-  
-
+  //on click to delete user
+  $(".dlt-user").click(function (event) {
+    var modal = $("#deleteUserModal");
+    modal.find('#delete-user-id').val(event.target.id);
+    modal.modal();
+  });
 
 });
