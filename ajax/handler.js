@@ -25,4 +25,11 @@ $(document).ready(function () {
     modal.modal();
   });
 
+   //on click to delete vote schedule
+   $(".dlt-schedule").click(function (event) {
+    var modal = $("#deleteScheduleModal");
+    modal.find('#delete-schedule-id').val(event.target.id);
+    modal.modal();
+  });
+
 });
