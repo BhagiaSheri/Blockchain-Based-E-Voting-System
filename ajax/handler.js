@@ -2,8 +2,17 @@
 $(document).ready(function () {
   // when logout is clicked 
   $("#log-me-out").click(function (event) {
-    alert("Logging out!");
-    log_out();
+    swal({
+      title: "Logging out...",
+      icon: "success",
+      buttons: true,
+      dangerMode: false,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          log_out();
+        } 
+      });
   });
 
   //on click to edit candidate
@@ -23,6 +32,18 @@ $(document).ready(function () {
     var modal = $("#deleteUserModal");
     modal.find('#delete-user-id').val(event.target.id);
     modal.modal();
+  });
+
+  //on click to delete vote schedule
+  $(".dlt-schedule").click(function (event) {
+    var modal = $("#deleteScheduleModal");
+    modal.find('#delete-schedule-id').val(event.target.id);
+    modal.modal();
+  });
+
+  // on click to edit profile
+  $("#editProfile").click(function () {
+    editProfile();
   });
 
   // --------- Chart JS Functionality ----------
