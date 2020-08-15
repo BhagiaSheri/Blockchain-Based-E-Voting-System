@@ -32,4 +32,9 @@ $(document).ready(function () {
     modal.modal();
   });
 
+  // on click to edit profile
+  $("#editProfile").click(function(){
+    editProfile();
+  });
+
 });
