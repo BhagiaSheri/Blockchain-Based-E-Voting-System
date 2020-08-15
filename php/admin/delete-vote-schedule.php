@@ -2,12 +2,12 @@
 // start session
 session_start();
 
-if (isset($_SESSION['user_name'])  && $_SESSION['role'] == 'admin' ) {
+if (isset($_SESSION['role'])  && $_SESSION['role'] == 'admin' ) {
 
     // check if all entered values
-    if( isset($_POST['delete-user-id']) )
+    if( isset($_POST['delete-schedule-id']) )
     {
-        $id = $_POST['delete-user-id'];
+        $id = $_POST['delete-schedule-id'];
 
         // get global connection variable
         global $conn;
@@ -17,16 +17,15 @@ if (isset($_SESSION['user_name'])  && $_SESSION['role'] == 'admin' ) {
         include_once("../config/connection.php");
         }
 
-        $pdo = $conn->prepare("UPDATE users SET is_deleted = ? WHERE id=?");
-        $pdo->bindValue(1, 1);
-        $pdo->bindValue(2, $id);
+        $pdo = $conn->prepare("DELETE FROM vote_timing WHERE t_id=?");
+        $pdo->bindValue(1, $id);
 
         $result = $pdo->execute();
         
         if($result)
         {
-            // echo "Candidate Registered!";
-            header("location:manage-users.php");
+            // echo "";
+            header("location:schedule-vote.php");
         }
     else
         echo "Not Deleted!";

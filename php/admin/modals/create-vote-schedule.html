@@ -1,0 +1,62 @@
+<!-- Modal create-vote schedule -->
+
+<div class="modal fade" id="createVoteScheduleModal" tabindex="-1" role="dialog"
+    aria-labelledby="createVoteScheduleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+            <!-- modal header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="createVoteScheduleModalLongTitle">Create Vote Schedule</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- modal body -->
+            <form method="POST" action="create-vote-schedule.php" enctype="multipart/form-data" accept-charset="UTF-8">
+                <div class="modal-body ">
+                    <section class="ml-3 mr-5">
+                        <div class="form-group mt-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <input type="date" class="form-control" name="start-date-schedule" placeholder="Start Date OF Voting" required validate>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <input type="date" class="form-control" name="end-date-schedule" placeholder="End Date OF Voting" required validate>                    
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                </div>
+                                <input type="time" class="form-control" name="start-time-schedule" placeholder="Start Time OF Voting" required validate>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                </div>
+                                <input type="time" class="form-control" name="end-time-schedule" placeholder="End Time Of Voting" required pattern="^\d{5}-\d{7}-\d{1}$" validate>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                <!-- modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
