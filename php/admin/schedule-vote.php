@@ -16,6 +16,7 @@ include_once("header.html");
     include_once("nav.php");
     include_once("modals/delete-vote-schedule.html");
     include_once("modals/create-vote-schedule.html");
+    include_once("modals/edit-vote-schedule.html");
     ?>
 
     <div id="layoutSidenav_content">
@@ -62,7 +63,7 @@ include_once("header.html");
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                    <th>Start Date</th>
+                                        <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Start Time</th>
                                         <th>End Time</th>
@@ -76,12 +77,12 @@ include_once("header.html");
                                         {
                                             if($row > 0 )
                                             {
-                                                echo "<tr>";
+                                                echo "<tr class='schedule-vote-row' id='".$row['t_id']."'>";
                                                 echo "<td>" . $row['start_date'] . "</td>";
                                                 echo "<td>" . $row['end_date'] . "</td>";
                                                 echo "<td>" . $row['start_time'] . "</td>";
                                                 echo "<td>" . $row['end_time'] . "</td>";
-                                                echo "<td> <a class='btn btn-success far fa-edit edit-schedule' style='font-size:13px' id='" . $row['t_id'] . "' ></a> <a style='font-size:13px' class='btn btn-danger fas fa-trash-alt dlt-schedule my-3' id='" . $row['t_id'] . "' ></a> </td>";
+                                                echo "<td> <a class='btn btn-success far fa-edit edit-schedule' data-toggle='modal' data-target='#editVoteScheduleModal' onclick='getExistingValues(this)' style='font-size:13px' id='" . $row['t_id'] . "' ></a> <a style='font-size:13px' class='btn btn-danger fas fa-trash-alt dlt-schedule my-3' id='" . $row['t_id'] . "' ></a> </td>";
                                                 echo "</tr>";
                                             }
                                           
