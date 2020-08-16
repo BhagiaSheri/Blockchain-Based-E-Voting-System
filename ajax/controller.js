@@ -7,7 +7,6 @@ function log_out(){
     });
 }
 
-
 // edit candidate data
 function editCandidate(id)
 {
