@@ -33,6 +33,7 @@ if (isset($_SESSION['role'])  && $_SESSION['role'] == 'admin' ) {
         
             if($result)
             {
+                $_SESSION['user_name'] = $name;
                $msg = "Admin profille Updated";
                 header("location:manage-candidates.php");
             }

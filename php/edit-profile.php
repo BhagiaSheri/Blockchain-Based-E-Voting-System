@@ -66,6 +66,7 @@ else if (isset($_SESSION['role'])  && $_SESSION['role'] == 'user' )
                 ,   'imgtype' => $row['imgtype'] 
            );
            echo (json_encode($jsonArray));
+
    }
    else 
 echo "resut not true!";
