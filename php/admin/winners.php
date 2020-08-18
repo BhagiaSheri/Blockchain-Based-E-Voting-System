@@ -5,7 +5,7 @@
             <i class="fas fa-table mr-1"></i>
             Winners
         </span>
-        <button onclick="showResult();" id="result" type="button" class="btn btn-primary"><i class="fa fa-trophy" aria-hidden="true"></i> Voting Results</button>
+        <button onclick="showResult();" id="result" type="button" class="btn btn-primary"><i class="fa fa-list-alt" aria-hidden="true"></i> Voting Results</button>
     </div>
 
     <div class="card-body">

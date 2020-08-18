@@ -3,35 +3,27 @@
 //setting header to json
 header('Content-Type: application/json');
 
-//database
-DEFINE('DB_USER' , 'root');	//Username
-DEFINE('DB_PASS' , "03012220690");	//Userpassword	
-DEFINE('DB_NAME' , 'blockchain_e_vote');	//Database Name
-DEFINE('DB_HOST' , 'localhost');	//Host
-
-//getConnection
-$mysqli=new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-
-if(!$mysqli){
-    die("Connection Failed!... ".$mysqli->error);
+//set conection to DB in case of null
+global $conn;
+if ($conn == null) {
+    include_once("../config/connection.php");
 }
 
-//   if no connected to DB, connect
-// if ($conn == null)
-// include_once("../config/connection.php");
-
 //query to get all the data from the candidate table.
-$query=sprintf("SELECT name, no_of_votes from candidates where is_deleted =0");
-//execute the query.
+$stm = $conn->prepare("SELECT name, no_of_votes from CANDIDATES where is_deleted =0");
 
-$result=$mysqli->query($query);
-// $stm->execute();
-// $result = $stm->fetch();
+//execute the query.
+$stm->execute();
+
+// json array to store the candidates info
+$data = array();
 
 //loop through the returned data.
-$data=array();
-foreach($result as $row){
-    $data[]=$row;
+while ($row = $stm->fetch()) {
+    $data[] = array(
+        'name' => $row['name'],
+        'no_of_votes' => $row['no_of_votes']
+    );
 }
 
 //now print the data in JSON format
