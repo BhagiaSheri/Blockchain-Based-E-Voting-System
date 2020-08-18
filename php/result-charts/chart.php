@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 //database
 DEFINE('DB_USER' , 'root');	//Username
-DEFINE('DB_PASS' , "03012220690");	//Userpassword	
+DEFINE('DB_PASS' , "11228");	//Userpassword	
 DEFINE('DB_NAME' , 'blockchain_e_vote');	//Database Name
 DEFINE('DB_HOST' , 'localhost');	//Host
 

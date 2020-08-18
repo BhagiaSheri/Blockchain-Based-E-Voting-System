@@ -35,7 +35,8 @@ if (isset($_SESSION['role'])  && $_SESSION['role'] == 'admin' ) {
             {
                 $_SESSION['user_name'] = $name;
                $msg = "Admin profille Updated";
-                header("location:manage-candidates.php");
+            //    echo $_SESSION['page-link'];
+                header("location:".$_SESSION['page-link']);
             }
             else
             $msg =  "ERROR! Not Updated!";
