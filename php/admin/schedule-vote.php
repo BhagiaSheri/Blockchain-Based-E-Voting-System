@@ -17,6 +17,9 @@ include_once("header.html");
     include_once("modals/delete-vote-schedule.html");
     include_once("modals/create-vote-schedule.html");
     include_once("modals/edit-vote-schedule.html");
+    // to keep track of current visited page
+    $_SESSION['page-link'] =  (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
     ?>
 
     <div id="layoutSidenav_content">

@@ -20,6 +20,9 @@ include_once("header.html");
 <body class="sb-nav-fixed">
     <?php
     include_once("nav.php");
+    // to keep track of current visited page
+    $_SESSION['page-link'] =  (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
     ?>
     <div id="layoutSidenav_content">
         <main>
