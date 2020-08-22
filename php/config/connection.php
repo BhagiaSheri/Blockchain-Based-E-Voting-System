@@ -4,7 +4,7 @@
 $dbhost="localhost";
 $dbname="blockchain_e_vote";
 $dbuser="root";
-$dbpass="03012220690";
+$dbpass="11228";
 
 try{
     $conn=new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
