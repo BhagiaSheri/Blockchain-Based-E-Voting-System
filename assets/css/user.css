@@ -1,0 +1,36 @@
+.scrolling-wrapper {
+    overflow-x: auto;
+}
+
+#candidates-list {
+    background-color: #2e3853;
+    color: #fff;
+    font-family: 'system-ui';
+    margin-top: 0;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 3em;
+}
+
+.subtitle {
+    font-size: 1.25em;
+    opacity: 0.65;
+}
+
+.card-block {
+    height: 250px;
+    background-color: #b3aeab;
+    border: none;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.card-block:hover {
+    transform: translateY(-5px);
+    box-shadow: none;
+}
+
+.bcontent {
+    margin-top: 10px;
+}
