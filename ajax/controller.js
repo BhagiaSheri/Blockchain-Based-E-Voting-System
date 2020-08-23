@@ -1,9 +1,18 @@
-function log_out(){
-    $.post("../log_out.php",
+function log_out(role){
+    let url = "";
+    if(role == "user")
+    url = "log_out.php";
+    else if(role == "admin")
+    url = "../log_out.php";
+    $.post(url,
     function(data){
-      // alert("returned: "+data);
       //to redirect back to main page after logging out
-      window.location.assign("admin.php");     
+      if(role == "user")
+      url = "../index.php";
+      else if(role == "admin")
+      url = "../../index.php";
+  
+      window.location.assign(url);     
     });
 }
 
@@ -33,9 +42,15 @@ function editCandidate(id)
 }
 
 // edit profile of loggd In user
-function editProfile()
+function editProfile(role)
 {
-  $.post("../edit-profile.php",
+  let url = "";
+  if(role == "user")
+  url = "edit-profile.php";
+  else if(role == "admin")
+  url = "../edit-profile.php";
+
+  $.post(url,
   function(data){
     var details = JSON.parse(data);    
 
@@ -52,7 +67,6 @@ function editProfile()
       alert("update user profile");
     }
    
-    
   });  
 }
 

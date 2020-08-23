@@ -48,7 +48,7 @@ else if (isset($_SESSION['role'])  && $_SESSION['role'] == 'user' )
    include_once("config/connection.php");
    }
 
-   $stm = $conn->prepare("SELECT name,contact_no,age, password, profile, imgtype from admin where id=?");
+   $stm = $conn->prepare("SELECT name,contact_no,age, password, profile, imgtype from users where id=?");
    $stm->bindValue(1,$id);
    $result = $stm->execute();
 

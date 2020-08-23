@@ -5,7 +5,7 @@ include_once("../header.html");
 <!-- add icon link -->
 <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
 </head>
-
+<body>
 <?php
 include_once("user-top-nav.php");
 ?>
@@ -259,3 +259,12 @@ include_once("user-top-nav.php");
 		</div>
 	</div>
 </section>
+<script src="../ajax/handler.js"></script> 
+<script src="../ajax/controller.js"></script>
+<!-- for sweet alert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="../../assets/lib/dataTables/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script src="../../assets/script/datatables.js"></script>
+</body>

@@ -48,13 +48,13 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
 
         // validate user
         if ($row['email'] == $email &&  $row['password'] == $pass) {
-            echo "Welcome!";
-            // redirect to user module
-            // header("location:index.php"); 
+            // echo "Welcome!";  
             // Create Session Variables
             $_SESSION['role'] = 'user';
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_name'] = $row['name'];
+             // redirect to user module
+            header("location:user.php"); 
         } else {
             echo "Invalid Credentials, try again!";
         }

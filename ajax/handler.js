@@ -10,7 +10,9 @@ $(document).ready(function () {
     })
       .then((willDelete) => {
         if (willDelete) {
-          log_out();
+           // get role
+            let role = $(event.target).attr('class').split(' ')[1];
+            log_out(role);
         } 
       });
   });
@@ -42,8 +44,11 @@ $(document).ready(function () {
   });
 
   // on click to edit profile
-  $("#editProfile").click(function () {
-    editProfile();
+  $("#editProfile").click(function (event) {
+    // get role
+    let role = $(event.target).attr('class').split(' ')[1];
+
+    editProfile(role);
   });
 
   // --------- Chart JS Functionality ----------

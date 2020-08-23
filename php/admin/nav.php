@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!(isset($_SESSION['role']) ) || $_SESSION['role'] != 'admin') {
+if (!(isset($_SESSION['role']) ) && $_SESSION['role'] != 'admin') {
     header("location:../../index.php");
 }else{
     include_once("modals/edit-admin-profile.html");
@@ -20,9 +20,9 @@ $name = $_SESSION["user_name"] ;
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#"><?php echo $name ?></a>
-                <a class="dropdown-item" href="#" id="editProfile">Settings</a>
+                <a class="dropdown-item admin" href="#" id="editProfile">Settings</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" id="log-me-out" href="#" >Logout</a>
+                <a class="dropdown-item admin" id="log-me-out" href="#" >Logout</a>
             </div>
         </li>
     </ul>
