@@ -47,18 +47,65 @@ if ($_POST) {
                 $stm->bindParam(7, $pictype);
                 $row = $stm->execute();
                 if ($row) {
-                    echo "<br>Registration Successfull!!!";
 
-                    // start session
-                    session_start();
-                    // is admin creating user - check login condition
-                    if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
-                        //redirect at manage-user page on sucessfull user creation
-                        header("Location: admin/manage-users.php");
-                    } else {
-                        // redirect to login page when user signup
-                        header("Location: ../login.php");
-                    }
+                    $get_stm = $conn->prepare("SELECT id, name from users where email=?");
+                    $get_stm->bindParam(1, $email);
+                    $get_stm->execute();
+
+                    while($row = $get_stm->fetch()) {
+                        echo $row['id']."-".$row['name'];
+                        $uid = $row['id'];
+                        $uname = $row['name'];
+                    
+?>
+
+<!-- include web3j file reference for results-->
+<script src="../smart-contract/node_modules/web3/dist/web3.min.js"></script>
+
+<!-- smart contract deployed address file -->
+<?php
+include_once("../smart-contract/smart-contract-config.php");
+?>
+
+
+<script>
+
+let user_id = <?php echo json_encode($uid); ?>;
+let user_name = <?php echo json_encode($uname); ?>;
+
+console.log(user_id);
+console.log(user_name);
+
+user_id = parseInt(user_id);
+
+console.log(user_id);
+console.log(user_name);
+
+addVoter(); //get no. of votes of candidates
+
+// fetching no. of candidates from smart contract
+async function addVoter() {
+    let n = 'bhagiasheri';
+        const response = await contra.addVoter(1, n, {from: web3.eth.accounts[1], gas:3000000});
+       
+    console.log(response);
+}
+</script>
+
+<?php
+}
+                    echo "<br>Registration Successfull!!!".$uid." - ".$uname;
+
+                    // // start session
+                    // session_start();
+                    // // is admin creating user - check login condition
+                    // if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
+                    //     //redirect at manage-user page on sucessfull user creation
+                    //     header("Location: admin/manage-users.php");
+                    // } else {
+                    //     // redirect to login page when user signup
+                    //     header("Location: ../login.php");
+                    // }
                 } else {
                     echo "<br>Registration Not Successfull!! ";
                 }

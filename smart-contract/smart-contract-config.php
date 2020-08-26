@@ -244,6 +244,6 @@
 		}
 	]);
 
-	let contra = electionContract.at('0x9a30641E6F433A21Ac04933a5206994c61A8f58C');
+	let contra = electionContract.at('0xd75b8Bc68257D1ef57c0Fb95D07a68D4ee8FE53a');
 	console.log(contra);
 </script>
