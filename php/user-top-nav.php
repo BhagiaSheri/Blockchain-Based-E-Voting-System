@@ -12,7 +12,6 @@ if (!(isset($_SESSION['role'])) && $_SESSION['role'] != 'user') {
         <li class="nav-item">
             <a href="election-statistics.php" class="btn btn-primary"><i class="fa fa-bar-chart" aria-hidden="true"></i> Election Statistics</a>
         </li>
- 
         <!-- for logged in user in navbar -->
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>

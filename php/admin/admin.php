@@ -1,7 +1,9 @@
 <?php
 include_once("header.html");
 ?>
+
 <title>Admin</title>
+
 <link rel="stylesheet" href="../../assets/lib/bootstrap-4.5.2/css/bootstrap.min.css">
 
 <link href="../../assets/css/admin.css" rel="stylesheet" />
@@ -26,20 +28,21 @@ include_once("header.html");
     ?>
     <div id="layoutSidenav_content">
         <main>
-        <div class="container-fluid">
- 
- <?php
- // results charts html file
- include_once("../../html/charts.html");
- // bar and pic chart file
- include_once("../result-charts/charts.php");
+            <div class="container-fluid">
 
- // Connection to Database 
- global $conn;
- if ($conn == null) {
-     include_once("../config/connection.php");
- }
- ?>
+                <?php
+                // results charts html file
+                include_once("../../html/charts.html");
+                // bar and pic chart file
+                include_once("../result-charts/charts.php");
+
+                // Connection to Database 
+                global $conn;
+                if ($conn == null) {
+                    include_once("../config/connection.php");
+                }
+                ?>
+
                 <!-- Complete Result Table-->
                 <div class="card mb-4" id="voting-result">
 
@@ -115,9 +118,9 @@ include_once("header.html");
         </main>
     </div>
 
-    <?php
-    include_once("footer-script.html");
-    ?>
 </body>
+<?php
+include_once("footer-script.html");
+?>
 
 </html>
