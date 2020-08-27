@@ -1,7 +1,7 @@
 function log_out(role){
     let url = "";
     if(role == "user")
-    url = "log_out.php";
+    url = "log_out.php/ ";
     else if(role == "admin")
     url = "../log_out.php";
     $.post(url,
