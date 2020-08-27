@@ -15,8 +15,8 @@ if ($active["is_active"] == 0) {
     <div class="card card-block ">
     <div class="card-body d-flex flex-column justify-content-center">
        <h4 class="card-title"> Hey ' . $_POST['user_name'] . ' !</h4>
-       <h6 class="card-text" style="color:#e91d36">You are not approved yet to caste vote, Please wait for your approval from admin!</h6>
-       <h6 class="card-text"  style="color:#e91d36">Thank You for your patience!</h6>
+       <h4 class="card-text" style="color:#e91d36">You are not approved yet to caste vote, Please wait for your approval from admin!</h4>
+       <h4 class="card-text"  style="color:#e91d36">Thank You for your patience!</h4>
     </div>
     
     </div>

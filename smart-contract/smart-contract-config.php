@@ -285,6 +285,6 @@
         }
 	]);
 
-	var contra = usersContract.at('0x3adA83CcB3b2367593e24F0d3907BACce4e52a6d');
+	var contra = usersContract.at('0x135a5DA46a26A7044C5E8D896181e008473bb74B');
     console.log(contra);
 </script>

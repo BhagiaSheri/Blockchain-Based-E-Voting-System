@@ -125,3 +125,8 @@ include_once("../header.html");
             });
         }
     </script>
+    <!-- handler & controller -->
+	<!-- <script src="../ajax/handler.js"></script> -->
+    <!-- <script src="../ajax/controller.js"></script> -->
+    <!-- for sweet alert -->
+	<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->

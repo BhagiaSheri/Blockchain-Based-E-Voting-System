@@ -1,7 +1,9 @@
 $(document).ready(function () {
+    
 
     //on click to caste vote 
     $("#candidates-list").on("click", ".caste-vote", function (event) {
+
         var candidateIndex = event.target.id;
         var voterIndex = $(event.target).attr('class').split(' ')[3];
         var candidateDesig = $(event.target).attr('name');
@@ -16,7 +18,7 @@ $(document).ready(function () {
     
         const res = await contra.vote(voterId, voteId, candidateDesignation + "", { from: web3.eth.accounts[1], gas: 3000000 });
         alert("Your Vote Casted!");
-        window.location.replace("user.php")
+        window.location.replace("user.php");
     }
 
     // id of logged in user
@@ -35,19 +37,17 @@ $(document).ready(function () {
     async function main() {
         console.log("MAIN CALLED*** " + contra.getNumCandidate());
         if (contra.getNumCandidate() > 0 && contra.getNumVoter() > 0) {
+
             // interate through all voters data
             for (let i = 0; i < contra.getNumVoter(); i++) {
                 const data = await contra.voters(i);
                 // get index of logged In user
-                // console.log("****** "+data[0].c[0]);
+                console.log(data[0].c[0]+""+user_id);
                 if (data[0].c[0] == user_id) {
                     userIndex = i;
-                    // alert("user index is "+i);
-                }
-                else {
-                    alert("user index is not found");
                 }
             }
+
             // get voting details of that user using that index
             const dataVoting = await contra.getMyVotedCandidates(userIndex);
             var candiIndex = [];

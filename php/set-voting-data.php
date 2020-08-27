@@ -8,13 +8,13 @@
         include_once("config/connection.php");
 
     // check active status
-    $stm = $conn->prepare("SELECT is_active from users where id=?");
+    $stm = $conn->prepare("SELECT is_active,is_deleted from users where id=?");
     $stm->bindValue(1, $_POST["user_id"]);
     $stm->execute();
     $active = $stm->fetch();
 
     // if user is active -> eligible to cast voe
-    if ($active["is_active"] == 1) {
+    if ($active["is_active"] == 1 && $active["is_deleted"]==0) {
 
     $stm = $conn->prepare("SELECT DISTINCT(designation) from CANDIDATES");
     $stm->execute();
@@ -123,8 +123,8 @@ else{
 <div class="card card-block ">
 <div class="card-body d-flex flex-column justify-content-center" >
    <h4 class="card-title"> Hey ' . $_POST['user_name'] . ' !</h4>
-   <h6 class="card-text" style="color:#e91d36">You are not approved yet to caste vote, Please wait for your approval from admin!</h6>
-   <h6 class="card-text"  style="color:#e91d36">Thank You for your patience!</h6>
+   <h4 class="card-text" style="color:#e91d36">You are not approved yet to caste vote, Please wait for your approval from admin!</h4>
+   <h4 class="card-text"  style="color:#e91d36">Thank You for your patience!</h4>
 </div>
 
 </div>
