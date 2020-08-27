@@ -43,7 +43,7 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                                 </div>
-                                <input type="date" class="form-control" placeholder="Date Of Birth">
+                                <input type="date" name="udob" class="form-control input_user" value="" placeholder="Date Of Birth" title="Enter Date of Birth" required>
                             </div>
                         </div>
 

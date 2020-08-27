@@ -20,7 +20,7 @@ include_once("../header.html");
     // user top-nav-bar file
     include_once("user-top-nav.php");
 
-    // charts html filr
+    // charts html file
     include_once("../html/charts.html");
 
     // smart contract deployed address file -->
@@ -125,3 +125,9 @@ include_once("../header.html");
             });
         }
     </script>
+    
+    <!-- handler & controller -->
+	<script src="../ajax/handler.js"></script>
+    <script src="../ajax/controller.js"></script>
+    <!-- for sweet alert -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

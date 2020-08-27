@@ -14,7 +14,7 @@ $user_name = $_SESSION["user_name"];
 
 <body>
 	<!-- hidden field to get its value in js file -->
-<input type="hidden" value="<?php echo $user_id ?> " name="<?php echo $user_name ?>" class="user_id">
+	<input type="hidden" value="<?php echo $user_id ?> " name="<?php echo $user_name ?>" class="user_id">
 	<?php
 	include_once("user-top-nav.php");
 	?>
@@ -24,9 +24,9 @@ $user_name = $_SESSION["user_name"];
 			<?php
 			include_once("../smart-contract/smart-contract-config.php");
 			?>
-					</div>
-				</div>
-		</section>
+	</div>
+	</div>
+	</section>
 
 	</div>
 	<!-- user script file -->
@@ -37,7 +37,8 @@ $user_name = $_SESSION["user_name"];
 	<!-- for sweet alert -->
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-	<!-- <script src="../assets/lib/dataTables/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+
+<!-- <script src="../assets/lib/dataTables/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 <script src="../assets/script/datatables.js"></script> -->
 
