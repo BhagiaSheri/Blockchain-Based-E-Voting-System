@@ -1,10 +1,22 @@
-<!-- user-sign-up PHP code -->
+<!-- include web3j file reference for results-->
+<script src="../smart-contract/node_modules/web3/dist/web3.min.js"></script>
+
 <?php
+ob_start(); // for enabling output buffering
+
+// start session
+session_start();
+
+$role = "";
+// is admin creating user - check login condition
+if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
+    $role = $_SESSION['role'];
+}
 
 if ($_POST) {
-
-    //get connection global variable
+    //set connection global variable
     global $conn;
+
     if ($conn == null) {
         // include connection file
         include_once("config/connection.php");
@@ -52,60 +64,48 @@ if ($_POST) {
                     $get_stm->bindParam(1, $email);
                     $get_stm->execute();
 
-                    while($row = $get_stm->fetch()) {
-                        echo $row['id']."-".$row['name'];
+                    while ($row = $get_stm->fetch()) {
+                        // echo $row['id'] . "-" . $row['name'];
                         $uid = $row['id'];
                         $uname = $row['name'];
-                    
+                    }
+
+                    //smart contract deployed address file
+                    include_once("../smart-contract/smart-contract-config.php");
 ?>
+                    <!-- smart contract scripting -->
+                    <script>
+                        let user_id = <?php echo json_encode($uid); ?>;
+                        let user_name = <?php echo json_encode($uname); ?>;
+                        let role = <?php echo json_encode($role); ?>;
 
-<!-- include web3j file reference for results-->
-<script src="../smart-contract/node_modules/web3/dist/web3.min.js"></script>
+                        user_id = parseInt(user_id);
 
-<!-- smart contract deployed address file -->
+                        console.log(user_id);
+                        console.log(user_name);
+                        console.log(role);
+
+                        addVoter(); //add voters in blockchain
+
+                        // add id and name of voter to blockchain
+                        async function addVoter() {
+                            const response = await contra.addVoter(user_id, user_name, {
+                                from: web3.eth.accounts[0],
+                                gas: 3000000
+                            });
+                            console.log(response);
+
+                            // redirect to manage-users page to admin
+                            if (role === "admin") {
+                                window.location.replace("admin/manage-users.php");
+                            } else {
+                                // redirect to login page to user
+                                window.location.replace("../login.php");
+                            }
+                        }
+                    </script>
 <?php
-include_once("../smart-contract/smart-contract-config.php");
-?>
-
-
-<script>
-
-let user_id = <?php echo json_encode($uid); ?>;
-let user_name = <?php echo json_encode($uname); ?>;
-
-console.log(user_id);
-console.log(user_name);
-
-user_id = parseInt(user_id);
-
-console.log(user_id);
-console.log(user_name);
-
-addVoter(); //get no. of votes of candidates
-
-// fetching no. of candidates from smart contract
-async function addVoter() {
-    let n = 'bhagiasheri';
-        const response = await contra.addVoter(1, n, {from: web3.eth.accounts[1], gas:3000000});
-       
-    console.log(response);
-}
-</script>
-
-<?php
-}
-                    echo "<br>Registration Successfull!!!".$uid." - ".$uname;
-
-                    // // start session
-                    // session_start();
-                    // // is admin creating user - check login condition
-                    // if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
-                    //     //redirect at manage-user page on sucessfull user creation
-                    //     header("Location: admin/manage-users.php");
-                    // } else {
-                    //     // redirect to login page when user signup
-                    //     header("Location: ../login.php");
-                    // }
+                    // echo "<br>Registration Successfull!!!";
                 } else {
                     echo "<br>Registration Not Successfull!! ";
                 }
@@ -113,9 +113,9 @@ async function addVoter() {
                 echo "<br>Password does not Matched!!!";
             }
         }
+    } else {
+        echo "<br>Password does not Matched!!!";
     }
-        else{
-            echo "<br>Password does not Matched!!!";
-        }
-    }  
+}
+ob_end_flush(); // turn off output buffering
 ?>
