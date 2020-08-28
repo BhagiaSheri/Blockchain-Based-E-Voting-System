@@ -99,9 +99,13 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
                         session_destroy(); //destroy the session
                     }
                     // voting on same date but process time ended
-                    else if (strtotime($currentTime) > strtotime($v_endTime)) {
-                        $msg = "Voting ended";
-                        $_SESSION['vote-end'] = "true";
+                    else if ($currentDate == $v_endDate) {
+                        if(strtotime($currentTime) > strtotime($v_endTime))
+                        {
+                            $msg = "Voting ended";
+                            $_SESSION['vote-end'] = "true";
+                        }
+    
                     }
                      else
                         $msg = "Voting ended";

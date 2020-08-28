@@ -98,11 +98,12 @@ if ($active["is_active"] == 1 && $active["is_deleted"] == 0) {
                         echo '
                                 <a class="caste-vote btn btn-success ' . $_POST["userIndex"] . '" name="' . $candiDesig . '" id="' . $candiIndex . '" >Cast Vote</a>                
                                                 ';
-                    }else{
-                        echo'
-                            <a class="caste-vote btn btn-success '.$_POST["userIndex"].'" name="'.$candiDesig.'" id="' . $candiIndex . '" >Cast Vote</a>                
-                                            ';
                     }
+                    // else{
+                    //     echo'
+                    //         <a class="caste-vote btn btn-success '.$_POST["userIndex"].'" name="'.$candiDesig.'" id="' . $candiIndex . '" >Cast Vote</a>                
+                    //                         ';
+                    // }
                 }
             }
             echo '                   
