@@ -5,6 +5,8 @@ session_start();
 if (isset($_POST['email'])  && isset($_POST['password'])) {
     // get global connection variable
     global $conn;
+    // for alert 
+    $msg = "";
 
     //   if no connected to DB, connect
     if ($conn == null)
@@ -24,22 +26,21 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
     $row = $pdo->fetch(PDO::FETCH_ASSOC);
 
     // validate user
-    if ($row['email'] == $email &&  $row['password'] == $pass) {  
-      
+    if ($row['email'] == $email &&  $row['password'] == $pass) {
+
         // Create Session Variables
-       $_SESSION['role'] = 'admin';
-       $_SESSION['user_id'] = $row['id'];
-       $_SESSION['user_name'] = $row['full_name'];
+        $_SESSION['role'] = 'admin';
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_name'] = $row['full_name'];
 
-    //    Redirect to admin module
-       header("location:../php/admin/admin.php");
-
+        //    Redirect to admin module
+        header("location:../php/admin/admin.php");
     } else {
         //hashed function
         $pass = md5($pass);
 
         // get data from users table to validate
-        $pdo = $conn->prepare("SELECT * FROM USERS WHERE email=? and password=?");
+        $pdo = $conn->prepare("SELECT * FROM USERS WHERE email=? and password=? and is_deleted=0 ");
         $pdo->bindValue(1, $email);
         $pdo->bindValue(2, $pass);
         $pdo->execute();
@@ -53,10 +54,83 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
             $_SESSION['role'] = 'user';
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_name'] = $row['name'];
-             // redirect to user module
-            header("location:user.php"); 
+
+            // // check the vote timing
+            $pdo = $conn->prepare("SELECT * FROM vote_timing");
+            $pdo->execute();
+            // fetch the data as associative array 
+            $row = $pdo->fetch(PDO::FETCH_ASSOC);
+
+            if ($row) {
+                // voting schedule
+                $v_startDate = $row["start_date"];
+                $v_endDate = $row["end_date"];
+                $v_startTime = $row["start_time"];
+                $v_endTime = $row["end_time"];
+
+                // current date & time
+                $currentDate = date("Y-m-d");
+                date_default_timezone_set('Asia/Karachi');
+                $currentTime = date("H:i:00", time());
+
+                echo $v_startDate . " " . $v_endDate . " " . $v_startTime . " " . $v_endTime . " \n ";
+                echo $currentDate . " TIME start  " . $v_startTime . " end " . ($v_endTime) . " current " . ($currentTime);
+
+                // echo $currentDate." TIME start  ".strtotime($v_startTime)." end".strtotime($v_endTime)." current ".strtotime($currentTime);
+
+
+                if ($currentDate < $v_startDate) {
+                    $msg = "Voting not started";
+                    session_destroy(); //destroy the session
+                } else if ($currentDate >= $v_startDate && $currentDate <= $v_endDate) {
+                    $msg = "with in date";
+
+                    if ($currentDate >= $v_startDate && strtotime($currentTime) >= strtotime($v_startTime)  && strtotime($currentTime) <= strtotime($v_endTime)) {
+                        $msg = "VOTE NOW";
+                         // redirect to user module
+                        header("location:user.php");
+                    }
+                    // voting on same date but process not started
+                    else if (strtotime($currentTime) < strtotime($v_startTime)) {
+                        $msg = "Voting not started";
+                        session_destroy(); //destroy the session
+                    }
+                    // voting on same date but process time ended
+                    else if (strtotime($currentTime) > strtotime($v_endTime)) {
+                        $msg = "Voting ended";
+                        $_SESSION['vote-end'] = "true";
+                    } else
+                        $msg = "Voting ended";
+                        $_SESSION['vote-end'] = "true";
+                }
+                if ($currentDate > $v_endDate) {
+                    $msg = "Voting ended";
+                    $_SESSION['vote-end'] = "true";
+                }        
+            }
         } else {
             echo "Invalid Credentials, try again!";
         }
     }
 }
+?>
+
+<!-- alert code -->
+<script>
+    let msg = <?php  echo json_encode($msg) ?>;
+    alert(msg);
+    let alrtTitle = "";
+    if (msg == "Voting not started") {
+        alrtTitle = "Hey! Voting is not started yet. Caste your vote between " +
+            <?php echo json_encode($v_startDate) ?> + " & " + <?php echo json_encode($v_endDate) ?> +
+            " during " + <?php echo json_encode($v_startTime) ?> + " & " + <?php echo json_encode($v_endTime) ?>;
+        alert(alrtTitle);
+        window.location.replace("../index.php");
+
+    } else if (msg == "Voting ended") {
+        alrtTitle = "Hey! Voting process ended but you can still see the election statistics";
+        window.location.replace("user.php");
+
+    }
+
+</script>
