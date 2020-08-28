@@ -55,6 +55,9 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_name'] = $row['name'];
 
+            $_SESSION['user_vote_casting_status'] = $row['is_active'];
+
+
             // // check the vote timing
             $pdo = $conn->prepare("SELECT * FROM vote_timing");
             $pdo->execute();
@@ -99,7 +102,8 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
                     else if (strtotime($currentTime) > strtotime($v_endTime)) {
                         $msg = "Voting ended";
                         $_SESSION['vote-end'] = "true";
-                    } else
+                    }
+                     else
                         $msg = "Voting ended";
                         $_SESSION['vote-end'] = "true";
                 }

@@ -1,7 +1,6 @@
 <?php
 include_once("header.html");
 ?>
- <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <title>VO-BLOK</title>
 </head>
 
@@ -41,7 +40,7 @@ include_once("header.html");
                 <div class="view d-flex align-items-center justify-content-center">
 
                     <video class="video-fluid" width="100%" autoplay loop muted>
-                        <source src="assets/videos/logo6.mp4" type="video/mp4" />
+                        <source src="assets/videos/logo-name.mp4" type="video/mp4" />
                     </video>
                     <!-- <div class="mask rgba-purple-slight"></div> -->
                 </div>
@@ -68,52 +67,35 @@ include_once("header.html");
 
 
     <div class="container-fluid mt-5 px-5" id="whywoblok">
-        <h1 class="mb-5">Why VO-BLOCK</h1>
+        <h1 class="mb-5 vo_under">Why VO-BLOK</h1>
 
         <div class="row">
-            <div class="col-lg-6 py-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quam nulla esse, voluptatum itaque ex,
-                temporibus a fugiat dolorem, voluptas aspernatur labore reiciendis. Voluptatibus totam unde, aliquam
-                incidunt sequi quisquam at nostrum, dignissimos iure
-                magni, velit earum fugit? Dicta obcaecati voluptatum quae necessitatibus, iste rem consectetur illo
-                provident, corrupti quo in repellendus incidunt minus explicabo modi error esse. Molestias quis quaerat
-                quisquam atque quidem ut animi
-                quibusdam fugiat itaque libero delectus officiis minima placeat doloribus molestiae sit porro, ducimus,
-                voluptatibus repellat! Consequatur aperiam possimus, ea vel reprehenderit similique praesentium atque
-                corporis laudantium facilis ad
-                dignissimos animi quia nesciunt porro temporibus sed, error eveniet quae veniam, provident cumque
-                molestias expedita magni? Nesciunt cumque, qui! Quos temporibus nesciunt fuga. Dolorem laboriosam
-                voluptas architecto ipsam enim doloribus,
-                consequuntur sapiente assumenda vitae inventore accusamus iste, voluptatum? Nostrum inventore
-                praesentium officia, ex eligendi beatae laudantium, quam id magnam illo dolores voluptatum. Eligendi
-                aliquam provident incidunt eveniet libero
-                tenetur commodi officia necessitatibus accusantium odit, numquam ut praesentium deleniti rem cupiditate
-                magni illo perspiciatis soluta magnam consectetur quasi. Accusantium, amet? Error velit quos vitae
-                impedit dicta quae, sunt temporibus,
-                in quibusdam debitis aut, reiciendis nostrum. Quia molestiae consectetur vel recusandae magni
-                necessitatibus, rem consequuntur odit sed enim.
+            <div class="col-lg-6 pb-3 why-vo-blok">
+                In these days, We follow traditional voting system almost. In traditional voting system, we face many problems. Just like travel place to place waiting in long queues and very big problem of security. From this system peoples getting frustrated and and this is also very time consuming process or system.
+
+                The consequences of traditional voting system are decrease the availability of voters. Political, social and economical issues are also increases. It also very costly.
+
+                Now, we best solution of these problems. we have to converted to digitalize system. Replace manual work with digital system. But in digital system we also have thread of security which I main problem. How we make our digital system secure. Because in digital system we also face security issue jest like hacking etc.
+
+                So, that why we are here with VO-BLOK. Vo-blok is blockchain based E-voting system. In this system we provide decentralize system, which is transparent, secure and immutable. The I no chances of security issues. Because we use blockchain technology which is highly secured. In this system, their is no chances for temper your vote.
+
+                V0-blok is the best solution for e-voting system wit high security. You can give easily vote from your home without any thread.
             </div>
             <div class="col-lg-6">
                 <div class="row">
                     <video width="100%" controls>
-                        <source src="assets/videos/desc1.mp4" type="video/mp4" />
+                        <source src="assets/videos/why-vo-blok.mp4" type="video/mp4" />
                         Your browser does not support HTML5 video.
                     </video>
-                </div>
-                <div class="row py-3">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus molestiae velit quod,
-                    dignissimos expedita sunt. Impedit unde debitis dicta sapiente ducimus nulla porro dolorum error
-                    perspiciatis est suscipit adipisci reprehenderit amet quaerat, ipsam
-                    eaque, dolore dolorem vero maiores, possimus fugiat.
                 </div>
             </div>
 
         </div>
     </div>
-    <div class="container mb-5" id="advantages">
-        <h1>
-            Advantages of Block Chain
-        </h1>
+    <div class="container mb-5 mt-5" id="advantages">
+        <h2>
+            Advantages of Blockchain
+        </h2>
 
 
         <div class="container mt-5">
@@ -150,83 +132,92 @@ include_once("header.html");
         </div>
     </div>
 
-    <div class="container mt-3">
+    <div class="container-fluid mt-3 px-5 hotovote">
         <h1>How to Vote</h1>
     </div>
 
-<div class="container-fluid pt-3 howtovote" id="howtovote">
+    <div class="container-fluid pt-3 mt-5 howtovote" id="howtovote">
 
-    <div class="container mt-5 mb-4">
-        <h1 class="text-white">
-            <a href="" class="typewrite text-white" data-period="2000" data-type='[ "Hi, Vo-Blok here.", "Block chain based E-Voting system", "Make your vote secure", "Make your vote transparent" ]'>
-                <span class="wrap"></span>
-            </a>
-        </h1>
-    </div>
+        <div class="container mt-5 mb-4">
+            <h1 class="text-white">
+                <a href="" class="typewrite text-white" data-period="2000" data-type='[ "Hi, Vo-Blok here.", "Block chain based E-Voting system", "Make your vote secure", "Make your vote transparent" ]'>
+                    <span class="wrap"></span>
+                </a>
+            </h1>
+        </div>
 
-    <div class="container mt-1 ">
+        <div class="container mt-1 ">
 
-        <div class="row py-2 rel text-center">
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
-                <img src="assets/images/registration.png" width="=80%" class="hover_item mb-3" data-hover="hello">
-                <div class="overlay">
-                    <div class="content">
-                        User has to register themselves <br>
-                        <a href="signup.php"> Click here for register </a>
+            <div class="row py-2 rel text-center">
+                <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
+                    <img src="assets/images/registration.png" width="=80%" class="hover_item mb-3" data-hover="hello">
+                    <div class="overlay">
+                        <div class="content">
+                            <p> User has to register themselves <br>
+                                <a href="signup.php"> Click here for register </a>
+                            </p>
+                        </div>
                     </div>
+                    <p class="text-white mt-3">Registration</p>
                 </div>
-                <p class="text-white mt-3">Registration</p>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
-                <img src="assets/images/authentication.png" width="=80%" class="hover_item mb-3" data-hover="hello">
-                <div class="overlay">
-                    <div class="content">
-                        Wait to be verified by admin, you will recieve an activation e-mail.
+                <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
+                    <img src="assets/images/authentication.png" width="=80%" class="hover_item mb-3" data-hover="hello">
+                    <div class="overlay">
+                        <div class="content">
+                            <p>
+                                Wait to be verified by admin, you will recieve an activation e-mail.
+                            </p>
+                        </div>
                     </div>
+                    <p class="text-white mt-3 ">Users Authentication</p>
                 </div>
-                <p class="text-white mt-3 ">Users Authentication</p>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
-                <img src="assets/images/login.png" width="=80%" class="hover_item mb-3" data-hover="hello">
-                <div class="overlay">
-                    <div class="content">
-                        User will be login here, and start Voting <br>
-                        <a href="login.php"> Click here for login </a>
+                <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
+                    <img src="assets/images/login.png" width="=80%" class="hover_item mb-3" data-hover="hello">
+                    <div class="overlay">
+                        <div class="content">
+                            <p>
+                                User will be login here, and start Voting <br>
+                                <a href="login.php"> Click here for login </a>
+                            </p>
+                        </div>
                     </div>
+                    <p class="text-white mt-3 ">Login</p>
                 </div>
-                <p class="text-white mt-3 ">Login</p>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
-                <img src="assets/images/vote-cast.png" width="=80%" class="hover_item mb-3" data-hover="hello">
-                <div class="overlay">
-                    <div class="content">
-                        Cast vote for your favourite candidate, and make impact.
+                <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
+                    <img src="assets/images/vote-cast.png" width="=80%" class="hover_item mb-3" data-hover="hello">
+                    <div class="overlay">
+                        <div class="content">
+                            <p>
+                                Cast vote for your favourite candidate, and make impact.
+                            </p>
+                        </div>
                     </div>
+                    <p class="text-white mt-3 ">Vote Cast</p>
                 </div>
-                <p class="text-white mt-3 ">Vote Cast</p>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
-                <img src="assets/images/verify-vote.png" width="=80%" class="hover_item mb-3" data-hover="hello">
-                <div class="overlay">
-                    <div class="content">
-                        After casting vote <a href="login.php"> Signin </a> and verify your vote.
+                <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
+                    <img src="assets/images/verify-vote.png" width="=80%" class="hover_item mb-3" data-hover="hello">
+                    <div class="overlay">
+                        <div class="content">
+                            <p>
+                                After casting vote <a href="login.php"> Signin </a> and verify your vote.
+                            </p>
+                        </div>
                     </div>
+                    <p class="text-white mt-3 ">Verify Vote</p>
                 </div>
-                <p class="text-white mt-3 ">Verify Vote</p>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
-                <img src="assets/images/winner.png" width="=80%" class="hover_item mb-3" data-hover="hello">
-                <div class="overlay">
-                    <div class="content">
-                        Hurrah!
+                <div class="col-lg-2 col-md-4 col-sm-4 col-6 py-3 hoverr wrapper">
+                    <img src="assets/images/winner.png" width="=80%" class="hover_item mb-3" data-hover="hello">
+                    <div class="overlay">
+                        <div class="content">
+                            <p> Hurrah!</p>
+                        </div>
                     </div>
+                    <p class="text-white mt-3 ">Winner</p>
                 </div>
-                <p class="text-white mt-3 ">Winner</p>
+                <div class="back-line"></div>
             </div>
-            <div class="back-line"></div>
         </div>
     </div>
-  </div>
     <?php
     include("footer.html");
     ?>
@@ -234,7 +225,7 @@ include_once("header.html");
     <?php
     include_once("footer-script.html");
     ?>
-    
+
 
 </body>
 

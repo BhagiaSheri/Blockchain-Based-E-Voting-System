@@ -76,6 +76,11 @@ contract Election{
         voters[_voterId].authorize = true;
     }
     
+    // to de-activate voters for vote casting
+    function deActivateVoter(uint _voterId) ownerOnly public {
+        voters[_voterId].authorize = false;
+    }
+    
     //  function to caste votes
     function vote(uint _voterId,uint _voteIndex, string _voteDesignation) public{
         // increment total votes casted by voter, based on _voteId

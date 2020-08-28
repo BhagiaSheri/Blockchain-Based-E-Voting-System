@@ -176,13 +176,11 @@ i {
     border-color: #007b5e;
 }
 
-section {
-    padding: 60px 0;
-}
+
 
 section .section-title {
     text-align: center;
-    color: #007b5e;
+    color: #2E3853;
     margin-bottom: 50px;
     text-transform: uppercase;
 }
@@ -271,12 +269,12 @@ section .section-title {
 
 .backside .card a {
     font-size: 18px;
-    color: #007b5e !important;
+color: #2E3853;
 }
 
 .frontside .card .card-title,
 .backside .card .card-title {
-    color: #007b5e !important;
+color: #2E3853;
 }
 
 .frontside .card .card-body img {
