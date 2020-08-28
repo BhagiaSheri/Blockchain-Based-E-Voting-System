@@ -11,6 +11,7 @@
 include_once("../../smart-contract/smart-contract-config.php");
 ?>
 
+<!-- smart contract scripting -->
 <script>
 	let data = [];
 
