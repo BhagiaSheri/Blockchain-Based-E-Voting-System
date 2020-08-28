@@ -265,6 +265,6 @@
 		}
 	]);
 
-	let contra = usersContract.at('0x1EDb00256D640969363f06351f7f29C76186e2c2');
+	let contra = usersContract.at('0xd208A7B9072a84329B87f432F6C050342045443a');
 	console.log(contra);
 </script>

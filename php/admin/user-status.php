@@ -31,6 +31,7 @@ if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
     // if successful then authorize
     // user in smart contract
     if ($row) {
+
         // smart contract deployed address file
         // this address needs to be change on each deployment
         include_once("../../smart-contract/smart-contract-config.php");

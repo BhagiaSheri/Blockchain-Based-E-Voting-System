@@ -24,16 +24,15 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
     $row = $pdo->fetch(PDO::FETCH_ASSOC);
 
     // validate user
-    if ($row['email'] == $email &&  $row['password'] == $pass) {  
-      
+    if ($row['email'] == $email &&  $row['password'] == $pass) {
+
         // Create Session Variables
-       $_SESSION['role'] = 'admin';
-       $_SESSION['user_id'] = $row['id'];
-       $_SESSION['user_name'] = $row['full_name'];
+        $_SESSION['role'] = 'admin';
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_name'] = $row['full_name'];
 
-    //    Redirect to admin module
-       header("location:../php/admin/admin.php");
-
+        //    Redirect to admin module
+        header("location:../php/admin/admin.php");
     } else {
         //hashed function
         $pass = md5($pass);
@@ -53,8 +52,10 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
             $_SESSION['role'] = 'user';
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_name'] = $row['name'];
-             // redirect to user module
-            header("location:user.php"); 
+            $_SESSION['user_vote_casting_status'] = $row['is_active'];
+
+            // redirect to user module
+            header("location:user.php");
         } else {
             echo "Invalid Credentials, try again!";
         }
