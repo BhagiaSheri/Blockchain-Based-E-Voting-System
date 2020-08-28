@@ -94,16 +94,12 @@ if ($active["is_active"] == 1 && $active["is_deleted"] == 0) {
 
 
                     // check if voting is already ended, thn don't allow vote
-                    if (!isset($_SESSION['vote-end']) && $_SESSION['vote-end'] != "true") {
+                    if ($_SESSION['vote-end'] == "false") {
                         echo '
                                 <a class="caste-vote btn btn-success ' . $_POST["userIndex"] . '" name="' . $candiDesig . '" id="' . $candiIndex . '" >Cast Vote</a>                
                                                 ';
                     }
-                    // else{
-                    //     echo'
-                    //         <a class="caste-vote btn btn-success '.$_POST["userIndex"].'" name="'.$candiDesig.'" id="' . $candiIndex . '" >Cast Vote</a>                
-                    //                         ';
-                    // }
+                  
                 }
             }
             echo '                   
@@ -139,3 +135,7 @@ if ($active["is_active"] == 1 && $active["is_deleted"] == 0) {
 // else{
 
 ?>
+<!-- <script>
+    let msg = <?php  echo json_encode($_SESSION['vote-end']) ?>;
+    alert(msg);
+</script> -->

@@ -72,12 +72,12 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
                 $v_endTime = $row["end_time"];
 
                 // current date & time
-                $currentDate = date("Y-m-d");
                 date_default_timezone_set('Asia/Karachi');
+                $currentDate = date("Y-m-d");
                 $currentTime = date("H:i:00", time());
 
                 echo $v_startDate . " " . $v_endDate . " " . $v_startTime . " " . $v_endTime . " \n ";
-                echo $currentDate . " TIME start  " . $v_startTime . " end " . ($v_endTime) . " current " . ($currentTime);
+                echo $currentDate . "  current " . ($currentTime);
 
                 // echo $currentDate." TIME start  ".strtotime($v_startTime)." end".strtotime($v_endTime)." current ".strtotime($currentTime);
 
@@ -90,6 +90,7 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
 
                     if ($currentDate >= $v_startDate && strtotime($currentTime) >= strtotime($v_startTime)  && strtotime($currentTime) <= strtotime($v_endTime)) {
                         $msg = "VOTE NOW";
+                        $_SESSION['vote-end'] = "false";
                          // redirect to user module
                         header("location:user.php");
                     }
@@ -107,9 +108,10 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
                         }
     
                     }
-                     else
+                     else{
                         $msg = "Voting ended";
                         $_SESSION['vote-end'] = "true";
+                     }
                 }
                 if ($currentDate > $v_endDate) {
                     $msg = "Voting ended";
@@ -131,7 +133,7 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
     if (msg == "Voting not started") {
         alrtTitle = "Hey! Voting is not started yet. Caste your vote between " +
             <?php echo json_encode($v_startDate) ?> + " & " + <?php echo json_encode($v_endDate) ?> +
-            " during " + <?php echo json_encode($v_startTime) ?> + " & " + <?php echo json_encode($v_endTime) ?>;
+            " during " + <?php echo json_encode($v_startTime) ?> + " to " + <?php echo json_encode($v_endTime) ?>;
         alert(alrtTitle);
         window.location.replace("../index.php");
 
