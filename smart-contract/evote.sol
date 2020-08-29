@@ -25,9 +25,9 @@ contract Election{
     // name of election
     string public electionName;
     
-    // arra of candidates in which structs will be pushed
+    // array of candidates in which structs will be pushed
     Candidate[] public candidates;
-    // arra of voters in which structs will be pushed
+    // array of voters in which structs will be pushed
      Voter[] public voters;
     //  total votes casted counter 
     uint public totalvotes;
@@ -44,10 +44,6 @@ contract Election{
         electionName = _name;
     }
    
-    // function to return whom a voter has casted his votes, based on voter id    
-   function getMyVotedCandidates(uint _voterId) ownerOnly public view returns(uint[]){
-        return voters[_voterId].vote;
-   }
    
     // to add candidates
     function addCandidate(uint _id, string _name, string _designation) ownerOnly public{
@@ -61,12 +57,20 @@ contract Election{
         voters.push(Voter(_id, _name, false, false,0,temp));
     }
     
+    // to edit a candidate struct based on candidate id  
+   function editCandidate(uint _candidateId, string _name, string _designation) ownerOnly public {
+        candidates[_candidateId].name = _name;
+        candidates[_candidateId].designation = _designation;
+   }
     //  get total candidates added
     function getNumCandidate() public view returns(uint){
         return candidates.length;
     }
-    
-     //  get total candidates added
+     // function to return whom a voter has casted his votes, based on voter id    
+   function getMyVotedCandidates(uint _voterId) ownerOnly public view returns(uint[]){
+        return voters[_voterId].vote;
+   } 
+     //  get total voters added
     function getNumVoter() public view returns(uint){
         return voters.length;
     }
@@ -75,12 +79,10 @@ contract Election{
     function authorize(uint _voterId) ownerOnly public {
         voters[_voterId].authorize = true;
     }
-    
     // to de-activate voters for vote casting
     function deActivateVoter(uint _voterId) ownerOnly public {
         voters[_voterId].authorize = false;
     }
-    
     //  function to caste votes
     function vote(uint _voterId,uint _voteIndex, string _voteDesignation) public{
         // increment total votes casted by voter, based on _voteId
