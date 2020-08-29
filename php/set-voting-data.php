@@ -64,7 +64,7 @@ if ($active["is_active"] == 1 && $active["is_deleted"] == 0) {
                 }
             }
             if ($casted == 1) {
-                echo '<a  class="badge badge-pill "  style="font-size:20px; background-color:#e91d36">Vote Casted</a> ';
+                echo '<a  class="badge badge-pill "  style="font-size:20px; background-color:#e91d36; width: fit-content;">Vote Casted</a> ';
             } else {
                 //    if user have casted vote to any of the fatched designation
                 //  thn not able to caste vote again to any candididate of same designation
@@ -77,7 +77,6 @@ if ($active["is_active"] == 1 && $active["is_deleted"] == 0) {
                         }
                     }
                 }
-
 
                 if ($castedDesignation == 0) {
                     // to store candidate index
@@ -92,16 +91,11 @@ if ($active["is_active"] == 1 && $active["is_deleted"] == 0) {
                         }
                     }
 
-
                     // check if voting is already ended, thn don't allow vote
-                    if (!isset($_SESSION['vote-end']) && $_SESSION['vote-end'] != "true") {
+                    if ($_SESSION['vote-end'] != true) {
                         echo '
                                 <a class="caste-vote btn btn-success ' . $_POST["userIndex"] . '" name="' . $candiDesig . '" id="' . $candiIndex . '" >Cast Vote</a>                
                                                 ';
-                    }else{
-                        echo'
-                            <a class="caste-vote btn btn-success '.$_POST["userIndex"].'" name="'.$candiDesig.'" id="' . $candiIndex . '" >Cast Vote</a>                
-                                            ';
                     }
                 }
             }
@@ -138,3 +132,17 @@ if ($active["is_active"] == 1 && $active["is_deleted"] == 0) {
 // else{
 
 ?>
+<script>
+    let data = <?php echo json_encode($_SESSION['vote-end']) ?>;
+    let uname = <?php echo json_encode($_SESSION['user_name']) ?>;
+
+    // alert(data);
+    if (data) {
+        swal({
+            type: "success",
+            title: "Voting Time Passed",
+            text: "Hey " + uname + "! Voting process has been ended but you can still verify your votes and see the election statistics",
+            icon: "warning",
+        });
+    }
+</script>

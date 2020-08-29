@@ -2,6 +2,14 @@
 // start session
 session_start();
 
+// variables to track updates at blockchain
+$updates="";
+$id=0;
+
+$name="";
+$designation="";
+
+
 if (isset($_SESSION['role'])  && $_SESSION['role'] == 'admin' ) {
 
     // check if all entered values
@@ -55,14 +63,63 @@ if (isset($_SESSION['role'])  && $_SESSION['role'] == 'admin' ) {
         
             if($result)
             {
-                echo "Candidate Updated";
-                header("location:manage-candidates.php");
+                $updates = "Candidate Updated";
             }
             else
-                echo "ERROR! Not Updated!";
+                $updates = "ERROR! Not Updated!";
     }
      else
-        echo "Please! enter all required fields";
+        $updates = "Please! enter all required fields";
 }
 else
-    echo "Session Expired, Login Again!";
+    $updates = "Session Expired, Login Again!";
+?>
+<!-- web3 -->
+<script src="../../smart-contract/node_modules/web3/dist/web3.min.js"></script>
+
+<?php 
+// include smart contract config
+include_once("../../smart-contract/smart-contract-config.php");
+?>
+
+<script>
+    // get data
+     let msg = <?php  echo json_encode($updates) ?>;
+     let id = <?php  echo json_encode($id) ?>;
+     let name = <?php  echo json_encode($name) ?>;
+     let desig = <?php  echo json_encode($designation) ?>;
+    // alert("db id "+id);
+
+    userIndex="";
+    if(msg == "Candidate Updated"){
+        // update candidate details
+         updateCandidate(id);
+    }
+    // function to update candidate details on blockchain
+    async function updateCandidate(user_id){
+        // console.log("l:"+contra.getNumCandidate());
+
+         // interate through all voters data
+         for (let i = 0; i < contra.getNumCandidate(); i++) {
+                const data = await contra.candidates(i);
+                // get index of logged In user
+                // console.log(data[0].c[0]);
+                console.log("i "+i+" uid"+user_id);
+
+                if (data[0].c[0] == user_id) {
+                    userIndex = i;
+                    const data = await contra.editCandidate(parseInt(i), name, desig);
+                    // redirect to the page again
+                    window.location.replace("manage-candidates.php");
+
+                    
+                }
+                else{
+                    console.log("index not found");
+                }
+            }
+    // alert("u index "+userIndex);
+
+    }
+            
+</script>
