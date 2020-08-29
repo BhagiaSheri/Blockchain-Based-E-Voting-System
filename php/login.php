@@ -144,7 +144,7 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
 <!-- alert code -->
 <script>
     let msg = <?php  echo json_encode($msg) ?>;
-    alert(msg);
+    // alert(msg);
     let alrtTitle = "";
     
     if (msg == "Voting not started") {
@@ -155,7 +155,7 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
                  //a function that waits for the DOM to be ready
             // alert(alrtTitle);
         swal({
-        type: "success",
+        // type: "success",
         title: "Voting not started",
         icon: "warning",
         text: alrtTitle,

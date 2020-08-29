@@ -30,6 +30,7 @@ include_once("header.html");
 						<div class="d-flex justify-content-center mt-3 login_container">
 							<button type="submit"  class="btn login_btn">Login</button>
 						</div>
+						<h6 id="login-msg" style="color: red;"></h6>
 					</form>
 				</div>
 
