@@ -85,7 +85,7 @@ include_once("header.html");
                                                 echo "<td>" . $row['end_date'] . "</td>";
                                                 echo "<td>" . $row['start_time'] . "</td>";
                                                 echo "<td>" . $row['end_time'] . "</td>";
-                                                echo "<td> <a class='btn btn-success far fa-edit edit-schedule' data-toggle='modal' data-target='#editVoteScheduleModal' onclick='getExistingValues(this)' style='font-size:13px' id='" . $row['t_id'] . "' ></a> <a style='font-size:13px' class='btn btn-danger fas fa-trash-alt dlt-schedule my-3' id='" . $row['t_id'] . "' ></a> </td>";
+                                                echo "<td> <a class='btn btn-success far fa-edit text-white edit-schedule' data-toggle='modal' data-target='#editVoteScheduleModal' onclick='getExistingValues(this)' style='font-size:13px' id='" . $row['t_id'] . "' ></a> <a style='font-size:13px' class='btn btn-danger fas fa-trash-alt dlt-schedule my-3 text-white' id='" . $row['t_id'] . "' ></a> </td>";
                                                 echo "</tr>";
                                             }
                                           
