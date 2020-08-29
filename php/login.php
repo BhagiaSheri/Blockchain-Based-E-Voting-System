@@ -32,7 +32,8 @@ if (isset($_POST['email'])  && isset($_POST['password'])) {
         $_SESSION['role'] = 'admin';
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['user_name'] = $row['full_name'];
-
+        $_SESSION['user_vote_casting_status'] = $row['is_active'];
+        
         //    Redirect to admin module
         header("location:../php/admin/admin.php");
     } else {
