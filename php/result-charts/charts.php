@@ -65,6 +65,10 @@ include_once("../../smart-contract/smart-contract-config.php");
 			type: 'bar',
 			data: barChartData,
 			options: {
+				title: {
+					display: true,
+					text: 'Number of Votes per Candidate'
+				},
 				scales: {
 					xAxes: [{
 						gridLines: {
@@ -98,6 +102,10 @@ include_once("../../smart-contract/smart-contract-config.php");
 			type: 'pie',
 			data: pieChartData,
 			options: {
+				title: {
+					display: true,
+					text: 'Likelihood/Possibility of Winning per Candidate'
+				},
 				responsive: true,
 				maintainAspectRatio: true,
 				plugins: {

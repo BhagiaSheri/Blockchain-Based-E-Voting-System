@@ -24,7 +24,6 @@ include_once("header.html");
     include_once("nav.php");
     // to keep track of current visited page
     $_SESSION['page-link'] =  (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
     ?>
     <div id="layoutSidenav_content">
         <main>
@@ -83,10 +82,14 @@ include_once("header.html");
                                     <?php
                                     if (isset($_SESSION['user_name']) && $_SESSION['role'] == "admin") {
 
-                                        $stm = $conn->prepare("SELECT c_id, name, email, contact_no, age, designation, no_of_votes, profile, imgtype from candidates WHERE is_deleted=0");
+                                        $c_id = array();
+
+                                        $stm = $conn->prepare("SELECT c_id, name, email, contact_no, age, designation, profile, imgtype from candidates WHERE is_deleted=0");
                                         $stm->execute();
 
                                         while ($row = $stm->fetch()) {
+
+                                            $c_id[] = array('c_id' => $row['c_id']);
 
                                             echo "<tr>";
                                             echo "<td><img src='data:" . $row["imgtype"] . ";base64," . base64_encode($row["profile"]) . "'height='100' width='100'/></td>";
@@ -95,12 +98,51 @@ include_once("header.html");
                                             echo "<td>" . $row['contact_no'] . "</td>";
                                             echo "<td>" . $row['age'] . "</td>";
                                             echo "<td>" . $row['designation'] . "</td>";
-                                            echo "<td>" . $row['no_of_votes'] . "</td>";
+                                            echo "<td class='candidate_votes'></td>";
                                             echo "</tr>";
                                         }
                                     }
                                     ?>
 
+                                    <?php
+                                    // smart contract deployed address file
+                                    // this address needs to be change on each deployment
+                                    include_once("../../smart-contract/smart-contract-config.php");
+                                    ?>
+
+                                    <!-- smart contract scripting for fetching no_of_votes -->
+                                    <script>
+                                        let candidate_ids = <?php echo json_encode($c_id); ?>; //candidate id from DB
+                                    
+
+                                        let candidates = []; //candidates no_of_votes list
+                                        
+                                        votingResults(); //fetch votes from blockchain
+
+                                        // get candidate id and total votes from blockchain
+                                        async function votingResults() {
+                                            for (let i = 0; i < contra.getNumCandidate(); i++) {
+                                                const response = await contra.candidates(i);
+                                                console.log("candidates: " + response);
+                                                candidates.push({
+                                                    'cid': parseInt(response[0]),
+                                                    'no_of_votes': parseInt(response[3])
+                                                });
+                                            }
+
+                                            // console.log(candidates);
+
+                                            // get the index and current status of clicked voter
+                                            candidates.forEach(function(candidate, index) {
+                                              
+                                                if(candidate.cid == candidate_ids[index].c_id){
+                                                    //add the no_of_votes in table column
+                                                   document.querySelectorAll(".candidate_votes")[index].innerHTML = candidate.no_of_votes;
+                                                }
+                                            });
+                                        }
+                                    </script>
+                                    <!-- end of smart contract scripting -->
                                 </tbody>
                             </table>
                         </div>

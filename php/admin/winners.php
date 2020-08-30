@@ -1,3 +1,9 @@
+<?php
+
+// smart contract deployed address file
+// this address needs to be change on each deployment
+include_once("../../smart-contract/smart-contract-config.php");
+?>
 <!-- Show Winners -->
 <div class="card mb-4" id="voting-winners">
     <div class="card-header d-flex justify-content-between align-items-center">

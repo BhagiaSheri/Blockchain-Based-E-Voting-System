@@ -66,6 +66,20 @@
 		"constant": false,
 		"inputs": [
 			{
+				"name": "_voterId",
+				"type": "uint256"
+			}
+		],
+		"name": "deActivateVoter",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
 				"name": "_candidateId",
 				"type": "uint256"
 			},
@@ -306,6 +320,6 @@
 	}
 ]);
 
-	var contra = usersContract.at('0xD196BB05a59227bc9DFEC8693fAb1662EA8551D0');
+	var contra = usersContract.at('0x21b4F6EfB543FB6AB8CC240b7251eAdFe2e16298');
     console.log(contra);
 </script>

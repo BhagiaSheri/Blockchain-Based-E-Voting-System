@@ -80,6 +80,10 @@ include_once("../header.html");
                 type: 'bar',
                 data: barChartData,
                 options: {
+                    title: {
+                        display: true,
+                        text: 'Number of Votes per Candidate'
+                    },
                     scales: {
                         xAxes: [{
                             gridLines: {
@@ -113,6 +117,10 @@ include_once("../header.html");
                 type: 'pie',
                 data: pieChartData,
                 options: {
+                    title: {
+                        display: true,
+                        text: 'Likelihood/Possibility of Winning per Candidate'
+                    },
                     responsive: true,
                     maintainAspectRatio: true,
                     plugins: {
@@ -125,9 +133,10 @@ include_once("../header.html");
             });
         }
     </script>
-    
+
     <!-- handler & controller -->
-	<script src="../ajax/handler.js"></script>
+    <script src="../ajax/handler.js"></script>
     <script src="../ajax/controller.js"></script>
     <!-- for sweet alert -->
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
